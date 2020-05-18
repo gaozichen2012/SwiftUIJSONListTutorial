@@ -2,8 +2,8 @@
 //  ContentView.swift
 //  SwiftUIJSONListTutorial
 //
-//  Created by Arthur Knopper on 18/02/2020.
-//  Copyright © 2020 Arthur Knopper. All rights reserved.
+//  Created by Tom on 18/5/2020.
+//  Copyright © 2020 Tom. All rights reserved.
 //
 
 import SwiftUI
@@ -32,6 +32,7 @@ class FetchToDo: ObservableObject {
                     let decodedData = try JSONDecoder().decode([Todo].self, from: todoData)
                     DispatchQueue.main.async {
                         self.todos = decodedData
+                        print("Have data")
                     }
                 } else {
                     print("No data")
