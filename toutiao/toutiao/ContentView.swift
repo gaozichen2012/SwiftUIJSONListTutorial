@@ -74,7 +74,6 @@ class FetchEventList: ObservableObject {
                     print("Error")
                 }
             }.resume()
-            
     }
 }
 
