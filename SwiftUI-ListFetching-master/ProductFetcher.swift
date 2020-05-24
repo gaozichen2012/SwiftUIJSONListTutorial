@@ -26,7 +26,7 @@ enum FetchError: Error {
     }
 }
 
-class ProductFetcher: BindableObject {
+class ProductFetcher: ObservableObject {
     private static let apiUrlString = "https://gist.githubusercontent.com/schmidyy/02fdec9b9e05a71312a550fc50f948e6/raw/7fc2facbbf9c3aa526f35a32d0c7fe74a4fc29a1/products.json"
     var didChange = PassthroughSubject<ProductFetcher, Never>()
     
@@ -61,7 +61,7 @@ class ProductFetcher: BindableObject {
     }
 }
 
-class ImageFetcher: BindableObject {
+class ImageFetcher: ObservableObject {
     var didChange = PassthroughSubject<Data, Never>()
     
     var data: Data = Data() {

@@ -3,10 +3,11 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 52;
 	objects = {
 
 /* Begin PBXBuildFile section */
+		D0120FBD247A6229001E9465 /* URLImage in Frameworks */ = {isa = PBXBuildFile; productRef = D0120FBC247A6229001E9465 /* URLImage */; };
 		D0C9922124742E4100FEA0F4 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0C9922024742E4100FEA0F4 /* AppDelegate.swift */; };
 		D0C9922324742E4100FEA0F4 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0C9922224742E4100FEA0F4 /* SceneDelegate.swift */; };
 		D0C9922524742E4100FEA0F4 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0C9922424742E4100FEA0F4 /* ContentView.swift */; };
@@ -31,6 +32,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D0120FBD247A6229001E9465 /* URLImage in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -91,6 +93,9 @@
 			dependencies = (
 			);
 			name = ItunesTaylorSwift;
+			packageProductDependencies = (
+				D0120FBC247A6229001E9465 /* URLImage */,
+			);
 			productName = ItunesTaylorSwift;
 			productReference = D0C9921D24742E4000FEA0F4 /* ItunesTaylorSwift.app */;
 			productType = "com.apple.product-type.application";
@@ -119,6 +124,9 @@
 				Base,
 			);
 			mainGroup = D0C9921424742E4000FEA0F4;
+			packageReferences = (
+				D0120FBB247A6229001E9465 /* XCRemoteSwiftPackageReference "url-image" */,
+			);
 			productRefGroup = D0C9921E24742E4000FEA0F4 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -342,6 +350,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		D0120FBB247A6229001E9465 /* XCRemoteSwiftPackageReference "url-image" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/dmytro-anokhin/url-image.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 0.9.15;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		D0120FBC247A6229001E9465 /* URLImage */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = D0120FBB247A6229001E9465 /* XCRemoteSwiftPackageReference "url-image" */;
+			productName = URLImage;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = D0C9921524742E4000FEA0F4 /* Project object */;
 }

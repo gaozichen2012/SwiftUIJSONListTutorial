@@ -13,21 +13,22 @@ let posters = [
     "https://image.tmdb.org/t/p/original//vqzNJRH4YyquRiWxCCOH0aXggHI.jpg",
     "https://image.tmdb.org/t/p/original//6ApDtO7xaWAfPqfi2IARXIzj8QS.jpg",
     "https://image.tmdb.org/t/p/original//7GsM4mtM0worCtIVeiQt28HieeN.jpg"
-].map { URL(string: $0)! }
+    ].map { URL(string: $0)! }
 
 struct ContentView: View {
     @Environment(\.imageCache) var cache: ImageCache
-
+    
     var body: some View {
-         List(posters, id: \.self) { url in
-             AsyncImage(
-                url: url,
-                cache: self.cache,
-                placeholder: Text("Loading ..."),
-                configuration: { $0.resizable() }
-             )
-            .frame(idealHeight: UIScreen.main.bounds.width / 2 * 3) // 2:3 aspect ratio
-         }
+        List(posters, id: \.self) { url in
+            //                AsyncImage(
+            //                    url: url,
+            //                    cache: self.cache,
+            //                    placeholder: Text("Loading ..."),
+            //                    configuration: { $0.resizable() }
+            //                 )
+            AsyncImage(url: url, cache: self.cache, placeholder: Text("Loading ..."), configuration: { $0.resizable() })
+                .frame(idealHeight: UIScreen.main.bounds.width / 2 * 3)
+        } // 2:3 aspect ratio
     }
 }
 
