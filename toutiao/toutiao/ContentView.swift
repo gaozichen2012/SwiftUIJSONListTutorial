@@ -23,15 +23,16 @@ struct Result: Codable {
 }
 
 //Result将存储曲目ID，名称和所属专辑
-//url形式的字符串需要做特殊处理，不然会解析失败
+//url形式的字符串不需要做特殊处理
+//解析失败的原因是因为有的成员无数据，需要对无数据的成员进行手动解析
 struct Data: Codable, Identifiable {
     public var id: String
     public var title: String
     public var date: String
     public var category: String
     public var author_name: String
-//    public var url: String
-//    public var thumbnail_pic_s: String
+    public var url: String
+    public var thumbnail_pic_s: String
 //    public var thumbnail_pic_s02: String
 //    public var thumbnail_pic_s03: String
     
@@ -42,8 +43,8 @@ struct Data: Codable, Identifiable {
         case date //= "date"
         case category
         case author_name
-//        case url
-//        case thumbnail_pic_s
+        case url
+        case thumbnail_pic_s
 //        case thumbnail_pic_s02
 //        case thumbnail_pic_s03
     }
@@ -81,15 +82,20 @@ struct ContentView: View {
     @ObservedObject var fetch = FetchEventList()
     
     var body: some View {
-        List(fetch.newsData)  { item in
-            VStack(alignment: .leading) {
-                Text(item.title)
-                    .font(.headline)
-                Text(item.date)
-                Text(item.category)
-                Text(item.author_name)
-            }
-        }
+
+        WebImagePage()
+//        List(fetch.newsData)  { item in
+//            VStack(alignment: .leading) {
+//                Text(item.title)
+//                    .font(.headline)
+//                Text(item.date)
+//                Text(item.category)
+//                Text(item.author_name)
+//                Text(item.url)
+//                Text(item.thumbnail_pic_s)
+//
+//            }
+//        }
     }
 }
 

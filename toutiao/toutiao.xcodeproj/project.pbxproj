@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		D0120FB5247A4930001E9465 /* WebImagePage.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0120FB4247A4930001E9465 /* WebImagePage.swift */; };
+		D0120FB7247A4C65001E9465 /* WebImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0120FB6247A4C65001E9465 /* WebImage.swift */; };
 		D0F6D0CC2476D09600C10898 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0F6D0CB2476D09600C10898 /* AppDelegate.swift */; };
 		D0F6D0CE2476D09600C10898 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0F6D0CD2476D09600C10898 /* SceneDelegate.swift */; };
 		D0F6D0D02476D09600C10898 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0F6D0CF2476D09600C10898 /* ContentView.swift */; };
@@ -16,6 +18,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		D0120FB4247A4930001E9465 /* WebImagePage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebImagePage.swift; sourceTree = "<group>"; };
+		D0120FB6247A4C65001E9465 /* WebImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebImage.swift; sourceTree = "<group>"; };
 		D0F6D0C82476D09600C10898 /* toutiao.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = toutiao.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D0F6D0CB2476D09600C10898 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D0F6D0CD2476D09600C10898 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -59,6 +63,8 @@
 				D0F6D0CB2476D09600C10898 /* AppDelegate.swift */,
 				D0F6D0CD2476D09600C10898 /* SceneDelegate.swift */,
 				D0F6D0CF2476D09600C10898 /* ContentView.swift */,
+				D0120FB6247A4C65001E9465 /* WebImage.swift */,
+				D0120FB4247A4930001E9465 /* WebImagePage.swift */,
 				D0F6D0D12476D0AB00C10898 /* Assets.xcassets */,
 				D0F6D0D62476D0AB00C10898 /* LaunchScreen.storyboard */,
 				D0F6D0D92476D0AB00C10898 /* Info.plist */,
@@ -148,7 +154,9 @@
 			files = (
 				D0F6D0CC2476D09600C10898 /* AppDelegate.swift in Sources */,
 				D0F6D0CE2476D09600C10898 /* SceneDelegate.swift in Sources */,
+				D0120FB7247A4C65001E9465 /* WebImage.swift in Sources */,
 				D0F6D0D02476D09600C10898 /* ContentView.swift in Sources */,
+				D0120FB5247A4930001E9465 /* WebImagePage.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
