@@ -11,7 +11,7 @@ import Combine
 
 //不知道哪里出了问题，调试的警告是如下，可能是获取不到该网址的数据，Xcode需要设置，也有可能是Data Model有问题
 //2020-05-20 23:54:17.616292+0800 TodayInHistory[3565:121026] Task <B9FEC6EA-73BA-4669-B731-224370CC09A0>.
-<1> finished with error [-1022] Error Domain=NSURLErrorDomain Code=-1022 "The resource could not be loaded because the App Transport Security policy requires the use of a secure connection." UserInfo={NSUnderlyingError=0x6000019af330 {Error Domain=kCFErrorDomainCFNetwork Code=-1022 "(null)"}, NSErrorFailingURLStringKey=http://api.juheapi.com/japi/toh?v=1.0&month=5&day=20&key=f16083ccb0da9bce187582cab895c060, NSErrorFailingURLKey=http://api.juheapi.com/japi/toh?v=1.0&month=5&day=20&key=f16083ccb0da9bce187582cab895c060, NSLocalizedDescription=The resource could not be loaded because the App Transport Security policy requires the use of a secure connection.}
+//<1> finished with error [-1022] Error Domain=NSURLErrorDomain Code=-1022 "The resource could not be loaded because the App Transport Security policy requires the use of a secure connection." UserInfo={NSUnderlyingError=0x6000019af330 {Error Domain=kCFErrorDomainCFNetwork Code=-1022 "(null)"}, NSErrorFailingURLStringKey=http://api.juheapi.com/japi/toh?v=1.0&month=5&day=20&key=f16083ccb0da9bce187582cab895c060, NSErrorFailingURLKey=http://api.juheapi.com/japi/toh?v=1.0&month=5&day=20&key=f16083ccb0da9bce187582cab895c060, NSLocalizedDescription=The resource could not be loaded because the App Transport Security policy requires the use of a secure connection.}
 //No data
 //Message from debugger: Terminated due to signal 15
 #if false
@@ -134,19 +134,60 @@ class FetchEventList: ObservableObject {
             }.resume()
             
     }
+    
 }
 
+
 struct ContentView: View {
-    @ObservedObject var fetch = FetchEventList()
+    @Binding var show : Bool
+    @Binding var month : String
+    @Binding var day : String
+    var result = [Result]()
+    
+    //@ObservedObject var fetch = FetchEventList()
     
     var body: some View {
-        List(fetch.result, id: \.id)  { item in
-            VStack(alignment: .leading) {
-                Text(item.title)
-                    .font(.headline)
-                Text(item.des)
+        VStack {
+            List(result, id: \.id)  { item in
+                VStack(alignment: .leading) {
+                    Text(item.title)
+                        .font(.headline)
+                    Text(item.des)
+                }
             }
         }
+        .offset(y:show ? 50 : UIScreen.main.bounds.height)
+        .onTapGesture {
+            self.show.toggle()
+        }
+    }
+    
+    
+    //现在传入月日参数后，在获取接口的数据的逻辑没弄明白，明天研究
+    //这个问题可以分类：一个是初始化时获取数据，另一个是触发获取数据
+    mutating func data_fresh() {
+        let url = URL(string: "http://api.juheapi.com/japi/toh?v=1.0&month=\(month)&day=\(day)&key=f16083ccb0da9bce187582cab895c060")!
+        //2.Wrapping that in a URLRequest, which allows us to configure how the URL should be accessed.
+        let request = URLRequest(url: url)
+            //3.Create and start a networking task from that URL request.
+            URLSession.shared.dataTask(with: request) { data, response, error in
+                do {
+                    if let data = data {
+                        // 3.数据被解码为Todo项目数组，并分配给todos属性。
+                        let decodedResponse = try JSONDecoder().decode(Response.self, from: data)
+                        DispatchQueue.main.async {
+                            // update our UI
+                            self.result = decodedResponse.result
+                            print("Have data")
+                        }
+                    } else {
+                        print("No data")
+                    }
+                } catch {
+                    print("Error")
+                }
+            }.resume()
+            
     }
 }
 #endif
@@ -154,8 +195,8 @@ struct ContentView: View {
 
 
 
-struct ContentView_Previews: PreviewProvider {
-    static var previews: some View {
-        ContentView()
-    }
-}
+//struct ContentView_Previews: PreviewProvider {
+//    static var previews: some View {
+//        ContentView()
+//    }
+//}
