@@ -6,6 +6,8 @@
 //  Copyright © 2020 Alfian Losari. All rights reserved.
 //
 
+//16:9 ??????????
+
 import SwiftUI
 
 struct MovieBackdropCarouselView: View {

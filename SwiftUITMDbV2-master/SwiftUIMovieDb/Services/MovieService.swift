@@ -6,8 +6,11 @@
 //  Copyright © 2020 Alfian Losari. All rights reserved.
 //
 
+//???????+???????
+
 import Foundation
 
+//????protocol????????????????????????
 protocol MovieService {
     
     func fetchMovies(from endpoint: MovieListEndpoint, completion: @escaping (Result<MovieResponse, MovieError>) -> ())
@@ -15,6 +18,7 @@ protocol MovieService {
     func searchMovie(query: String, completion: @escaping (Result<MovieResponse, MovieError>) -> ())
 }
 
+//??enum??url???????
 enum MovieListEndpoint: String, CaseIterable {
     case nowPlaying = "now_playing"
     case upcoming
@@ -31,6 +35,7 @@ enum MovieListEndpoint: String, CaseIterable {
     }
 }
 
+//??enum????????
 enum MovieError: Error, CustomNSError {
     
     case apiError

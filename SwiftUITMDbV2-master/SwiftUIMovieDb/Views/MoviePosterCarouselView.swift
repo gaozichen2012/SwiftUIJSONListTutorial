@@ -6,7 +6,8 @@
 //  Copyright © 2020 Alfian Losari. All rights reserved.
 //
 
-//MoviePosterCarouselView: Horizontal scrollable carousel
+//2?3??????????
+// Horizontal scrollable carousel
 
 import SwiftUI
 

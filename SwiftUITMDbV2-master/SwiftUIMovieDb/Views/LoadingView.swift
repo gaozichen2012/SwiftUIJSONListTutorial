@@ -6,6 +6,8 @@
 //  Copyright © 2020 Alfian Losari. All rights reserved.
 //
 
+//??????????Retry?
+
 import SwiftUI
 
 struct LoadingView: View {

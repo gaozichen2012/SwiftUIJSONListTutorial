@@ -6,7 +6,8 @@
 //  Copyright © 2020 Alfian Losari. All rights reserved.
 //
 
-//MoviePosterCard View:Image with 2:3 Aspect Ratio
+//2?3??????????????
+//Image with 2:3 Aspect Ratio
 
 import SwiftUI
 

@@ -6,7 +6,9 @@
 //  Copyright © 2020 Alfian Losari. All rights reserved.
 //
 
-//MovieBackropCard View:Image with 16:9 Aspect Ratio & title
+//16:9 ??????????????
+//Image with 16:9 Aspect Ratio & title
+
 
 import SwiftUI
 
