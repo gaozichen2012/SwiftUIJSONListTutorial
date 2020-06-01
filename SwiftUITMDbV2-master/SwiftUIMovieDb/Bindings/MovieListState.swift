@@ -6,7 +6,7 @@
 //  Copyright © 2020 Alfian Losari. All rights reserved.
 //
 
-//???????????????????
+//上连接MovieListView，下连接 MovieStore 的 fetchMovies 方法
 
 import SwiftUI
 
@@ -22,6 +22,7 @@ class MovieListState: ObservableObject {
         self.movieService = movieService
     }
     
+    //从MovieStore中继承了 fetchMovies 方法获取数据
     func loadMovies(with endpoint: MovieListEndpoint) {
         self.movies = nil
         self.isLoading = true

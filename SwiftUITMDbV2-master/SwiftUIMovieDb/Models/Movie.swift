@@ -76,6 +76,7 @@ struct Movie: Decodable, Identifiable {
         return "\(ratingText.count)/10"
     }
     
+    //年份格式化，调用yearFormatter
     var yearText: String {
         guard let releaseDate = self.releaseDate, let date = Utils.dateFormatter.date(from: releaseDate) else {
             return "n/a"
@@ -83,6 +84,7 @@ struct Movie: Decodable, Identifiable {
         return Movie.yearFormatter.string(from: date)
     }
     
+    //时分格式化（电影时长），调用durationFormatter
     var durationText: String {
         guard let runtime = self.runtime, runtime > 0 else {
             return "n/a"
@@ -90,26 +92,32 @@ struct Movie: Decodable, Identifiable {
         return Movie.durationFormatter.string(from: TimeInterval(runtime) * 60) ?? "n/a"
     }
     
+    //电影演员Movie Cast
     var cast: [MovieCast]? {
         credits?.cast
     }
     
+    //电影工作人员（除了演员之外的工作人员）
     var crew: [MovieCrew]? {
         credits?.crew
     }
     
+    //导演director
     var directors: [MovieCrew]? {
         crew?.filter { $0.job.lowercased() == "director" }
     }
     
+    //制片人producer
     var producers: [MovieCrew]? {
         crew?.filter { $0.job.lowercased() == "producer" }
     }
     
+    //电影剧本作家screen Writer
     var screenWriters: [MovieCrew]? {
         crew?.filter { $0.job.lowercased() == "story" }
     }
     
+    //电影预告片Trailers
     var youtubeTrailers: [MovieVideo]? {
         videos?.results.filter { $0.youtubeURL != nil }
     }
@@ -129,6 +137,7 @@ struct MovieCredit: Decodable {
 }
 
 //Movie 的子子结构
+//电影演员Movie Cast
 struct MovieCast: Decodable, Identifiable {
     let id: Int
     let character: String
@@ -136,6 +145,7 @@ struct MovieCast: Decodable, Identifiable {
 }
 
 //Movie 的子子结构
+//电影工作人员（除了演员之外的工作人员）
 struct MovieCrew: Decodable, Identifiable {
     let id: Int
     let job: String

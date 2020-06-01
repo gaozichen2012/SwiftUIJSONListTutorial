@@ -10,7 +10,7 @@
 
 import Foundation
 
-
+//从本地的Resources文件夹movie_list.json文件中获取数据
 extension Movie {
     
     static var stubbedMovies: [Movie] {
@@ -21,9 +21,9 @@ extension Movie {
     static var stubbedMovie: Movie {
         stubbedMovies[0]
     }
-    
 }
 
+//封装一个本地解码器
 extension Bundle {
     
     func loadAndDecodeJSON<D: Decodable>(filename: String) throws -> D? {

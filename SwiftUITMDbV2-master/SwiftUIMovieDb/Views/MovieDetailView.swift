@@ -10,7 +10,7 @@
 
 //MovieDetailView: Title and Banner image
 //MovieDetailView: Overview, year, duration, genre, & rating
-//MovieDetailView: Cast & Crew
+//MovieDetailView: 电影演员Cast & 工作人员Crew
 //MovieDetailView: Trailers & SafariView 
 import SwiftUI
 

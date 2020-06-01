@@ -6,7 +6,8 @@
 //  Copyright © 2020 Alfian Losari. All rights reserved.
 //
 
-//?????????????????????
+//上连接 MovieSearchView ，下连接 MovieStore 的 searchMovie 方法
+
 //Observe and throttle with Combine
 
 import SwiftUI
@@ -40,6 +41,7 @@ class MovieSearchState: ObservableObject {
             .sink { [weak self] in self?.search(query: $0) }
     }
     
+    //从MovieStore中继承了 searchMovie 方法获取数据
     func search(query: String) {
         self.movies = nil
         self.isLoading = false

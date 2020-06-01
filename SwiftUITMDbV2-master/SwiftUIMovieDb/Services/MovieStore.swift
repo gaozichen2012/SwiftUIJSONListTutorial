@@ -6,11 +6,12 @@
 //  Copyright © 2020 Alfian Losari. All rights reserved.
 //
 
-//??????????MovieStore????????3?????JSON??
+//MovieService的具体实施：在 MovieStore class中进行实际的URL JSON解码
 //MovieService concrete implementation
 
 import Foundation
 
+//获取3种格式的JSON数据：电影列表、单部电影、搜索电影的列表
 //https://api.themoviedb.org/3/movie/now_playing?api_key=a7532a23ae5813193ebd13ba4de76cf2
 //https://api.themoviedb.org/3/movie/550?api_key=a7532a23ae5813193ebd13ba4de76cf2
 //https://api.themoviedb.org/3/search/movie?language=en-US&include_adult=false&region=US&query=green&api_key=a7532a23ae5813193ebd13ba4de76cf2
@@ -24,6 +25,7 @@ class MovieStore: MovieService {
     private let urlSession = URLSession.shared
     private let jsonDecoder = Utils.jsonDecoder
     
+    //取得电影列表数据
     func fetchMovies(from endpoint: MovieListEndpoint, completion: @escaping (Result<MovieResponse, MovieError>) -> ()) {
         guard let url = URL(string: "\(baseAPIURL)/movie/\(endpoint.rawValue)") else {
             completion(.failure(.invalidEndpoint))
@@ -32,6 +34,7 @@ class MovieStore: MovieService {
         self.loadURLAndDecode(url: url, completion: completion)
     }
     
+    //取得单部电影数据
     func fetchMovie(id: Int, completion: @escaping (Result<Movie, MovieError>) -> ()) {
         guard let url = URL(string: "\(baseAPIURL)/movie/\(id)") else {
             completion(.failure(.invalidEndpoint))
@@ -42,6 +45,7 @@ class MovieStore: MovieService {
         ], completion: completion)
     }
     
+    //取得搜索电影的列表数据
     func searchMovie(query: String, completion: @escaping (Result<MovieResponse, MovieError>) -> ()) {
         guard let url = URL(string: "\(baseAPIURL)/search/movie") else {
             completion(.failure(.invalidEndpoint))
@@ -55,6 +59,7 @@ class MovieStore: MovieService {
         ], completion: completion)
     }
     
+    //定义了一个泛型函数用于加载URL和解码（使用了 URLComponents 和 URLQueryItem ）
     private func loadURLAndDecode<D: Decodable>(url: URL, params: [String: String]? = nil, completion: @escaping (Result<D, MovieError>) -> ()) {
         guard var urlComponents = URLComponents(url: url, resolvingAgainstBaseURL: false) else {
             completion(.failure(.invalidEndpoint))
