@@ -22,19 +22,21 @@ struct Movie: Decodable, Identifiable {
     let overview: String
     let voteAverage: Double
     let voteCount: Int
-    let runtime: Int?
+    let runtime: Int? //for movie detail
     let releaseDate: String?
     
     let genres: [MovieGenre]?
     let credits: MovieCredit?
     let videos: MovieVideoResponse?
     
+    //年份格式化
     static private let yearFormatter: DateFormatter = {
         let formatter = DateFormatter()
         formatter.dateFormat = "yyyy"
         return formatter
     }()
     
+    //时分格式化（电影时长）
     static private let durationFormatter: DateComponentsFormatter = {
         let formatter = DateComponentsFormatter()
         formatter.unitsStyle = .full
@@ -42,18 +44,22 @@ struct Movie: Decodable, Identifiable {
         return formatter
     }()
     
+    //补全横幅卡片图片的http头
     var backdropURL: URL {
         return URL(string: "https://image.tmdb.org/t/p/w500\(backdropPath ?? "")")!
     }
     
+    //补全垂直卡片图片的http头
     var posterURL: URL {
         return URL(string: "https://image.tmdb.org/t/p/w500\(posterPath ?? "")")!
     }
     
+    //电影类型 like Action 【genre (文学、艺术、电影或音乐的)体裁，类型】
     var genreText: String {
         genres?.first?.name ?? "n/a"
     }
     
+    //vote average投票平均评分（用于star显示）
     var ratingText: String {
         let rating = Int(voteAverage)
         let ratingText = (0..<rating).reduce("") { (acc, _) -> String in
@@ -61,7 +67,8 @@ struct Movie: Decodable, Identifiable {
         }
         return ratingText
     }
-    
+
+    //vote average投票平均评分（用于数字显示：7/10）
     var scoreText: String {
         guard ratingText.count > 0 else {
             return "n/a"
@@ -106,37 +113,42 @@ struct Movie: Decodable, Identifiable {
     var youtubeTrailers: [MovieVideo]? {
         videos?.results.filter { $0.youtubeURL != nil }
     }
-    
 }
 
+//Movie 的子结构
 struct MovieGenre: Decodable {
     
     let name: String
 }
 
+//Movie 的子结构
 struct MovieCredit: Decodable {
     
     let cast: [MovieCast]
     let crew: [MovieCrew]
 }
 
+//Movie 的子子结构
 struct MovieCast: Decodable, Identifiable {
     let id: Int
     let character: String
     let name: String
 }
 
+//Movie 的子子结构
 struct MovieCrew: Decodable, Identifiable {
     let id: Int
     let job: String
     let name: String
 }
 
+//Movie 的子结构
 struct MovieVideoResponse: Decodable {
     
     let results: [MovieVideo]
 }
 
+//Movie 的子子结构
 struct MovieVideo: Decodable, Identifiable {
     
     let id: String

@@ -11,6 +11,9 @@
 
 import Foundation
 
+//https://api.themoviedb.org/3/movie/now_playing?api_key=a7532a23ae5813193ebd13ba4de76cf2
+//https://api.themoviedb.org/3/movie/550?api_key=a7532a23ae5813193ebd13ba4de76cf2
+//https://api.themoviedb.org/3/search/movie?language=en-US&include_adult=false&region=US&query=green&api_key=a7532a23ae5813193ebd13ba4de76cf2
 class MovieStore: MovieService {
     
     static let shared = MovieStore()
