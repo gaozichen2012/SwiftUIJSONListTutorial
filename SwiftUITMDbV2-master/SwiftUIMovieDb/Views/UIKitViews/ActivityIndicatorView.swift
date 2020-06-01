@@ -6,7 +6,7 @@
 //  Copyright © 2020 Alfian Losari. All rights reserved.
 //
 
-//Activity Indicator??????????
+//Activity Indicator活动指标（转圈动画）
 
 import SwiftUI
 

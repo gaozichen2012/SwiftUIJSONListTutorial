@@ -6,9 +6,8 @@
 //  Copyright © 2020 Alfian Losari. All rights reserved.
 //
 
-//16:9 ??????????????
+//16:9横幅卡片
 //Image with 16:9 Aspect Ratio & title
-
 
 import SwiftUI
 

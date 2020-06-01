@@ -6,7 +6,7 @@
 //  Copyright © 2020 Alfian Losari. All rights reserved.
 //
 
-//2?3??????????????
+//2:3立式卡片
 //Image with 2:3 Aspect Ratio
 
 import SwiftUI

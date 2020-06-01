@@ -6,7 +6,7 @@
 //  Copyright © 2020 Alfian Losari. All rights reserved.
 //
 
-//??????????Retry?
+//加载视图，显示转圈动画或显示失败Retry
 
 import SwiftUI
 

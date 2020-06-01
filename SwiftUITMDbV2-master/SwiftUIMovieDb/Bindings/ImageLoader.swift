@@ -6,7 +6,7 @@
 //  Copyright © 2020 Alfian Losari. All rights reserved.
 //
 
-//?????????????
+//图片加载器
 //ImageLoader Observable: Asynchronous image download
 
 import SwiftUI

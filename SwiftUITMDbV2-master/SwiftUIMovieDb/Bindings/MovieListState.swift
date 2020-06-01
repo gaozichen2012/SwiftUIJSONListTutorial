@@ -23,6 +23,7 @@ class MovieListState: ObservableObject {
     }
     
     //从MovieStore中继承了 fetchMovies 方法获取数据
+    //在onAppear中调用loadMovies时获取数据可以保证每次刷新是获取一次数据（不同于init时获取数据）
     func loadMovies(with endpoint: MovieListEndpoint) {
         self.movies = nil
         self.isLoading = true

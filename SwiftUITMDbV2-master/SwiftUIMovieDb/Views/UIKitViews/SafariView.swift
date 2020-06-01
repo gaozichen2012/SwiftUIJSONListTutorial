@@ -6,7 +6,7 @@
 //  Copyright © 2020 Alfian Losari. All rights reserved.
 //
 
-//?????
+//浏览器视图
 
 import SafariServices
 import SwiftUI

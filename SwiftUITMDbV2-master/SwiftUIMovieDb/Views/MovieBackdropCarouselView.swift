@@ -6,7 +6,7 @@
 //  Copyright © 2020 Alfian Losari. All rights reserved.
 //
 
-//16:9 ??????????
+//16:9横幅卡片滚动视图
 
 import SwiftUI
 
