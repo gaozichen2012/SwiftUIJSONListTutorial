@@ -6,13 +6,11 @@
 //  Copyright © 2020 Alfian Losari. All rights reserved.
 //
 
-//Tabview第一栏包含4个View
-//Now playing?????upcoming?????top rated??????popular movies???????
+//Tabview第一栏包含4个View：Now playing/upcoming/top rated/popular movies
 
 import SwiftUI
 
 struct MovieListView: View {
-    
     //@ObservedObject告诉SwiftUI，这个对象是可以被观察的，里面含有被@Published包装了的属性。
     //@ObservedObject 包装的对象，必须遵循ObservableObject协议。也就是说必须是class对象，不能是struct。
     //@Published 修饰对象里属性，表示这个属性是需要被 SwiftUI 监听的

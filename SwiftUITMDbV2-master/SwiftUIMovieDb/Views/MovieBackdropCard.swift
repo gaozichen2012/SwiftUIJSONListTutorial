@@ -35,6 +35,7 @@ struct MovieBackdropCard: View {
         }
         .lineLimit(1)
         .onAppear {
+            //首次刷新时将图片信息传给imageLoader
             self.imageLoader.loadImage(with: self.movie.backdropURL)
         }
     }

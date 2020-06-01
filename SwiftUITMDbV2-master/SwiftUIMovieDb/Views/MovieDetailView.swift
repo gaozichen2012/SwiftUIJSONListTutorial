@@ -8,10 +8,10 @@
 
 //?????
 
-//MovieDetailView: Title and Banner image
-//MovieDetailView: Overview, year, duration, genre, & rating
+//MovieDetailView: Title and 横幅图像Banner image
+//MovieDetailView: 概述Overview, 发行年份year, 时长duration, 电影类型genre, & 评分rating
 //MovieDetailView: 电影演员Cast & 工作人员Crew
-//MovieDetailView: Trailers & SafariView 
+//MovieDetailView: 预告片Trailers & SafariView 
 import SwiftUI
 
 struct MovieDetailView: View {
@@ -44,9 +44,11 @@ struct MovieDetailListView: View {
     
     var body: some View {
         List {
+            //第一栏：横幅图片
             MovieDetailImage(imageURL: self.movie.backdropURL)
                 .listRowInsets(EdgeInsets(top: 0, leading: 0, bottom: 0, trailing: 0))
             
+            //第二栏：电影类型+发行年份+电影时长
             HStack {
                 Text(movie.genreText)
                 Text("·")
@@ -54,6 +56,7 @@ struct MovieDetailListView: View {
                 Text(movie.durationText)
             }
             
+            //第三栏：概述
             Text(movie.overview)
             HStack {
                 if !movie.ratingText.isEmpty {
@@ -64,6 +67,7 @@ struct MovieDetailListView: View {
             
             Divider()
             
+            //第四栏：Starring主演+Director导演+Producer制片人+Screenwriter剧本作家
             HStack(alignment: .top, spacing: 4) {
                 if movie.cast != nil && movie.cast!.count > 0 {
                     VStack(alignment: .leading, spacing: 4) {
@@ -108,6 +112,7 @@ struct MovieDetailListView: View {
             
             Divider()
             
+            //第五栏：Trailers预告片
             if movie.youtubeTrailers != nil && movie.youtubeTrailers!.count > 0 {
                 Text("Trailers").font(.headline)
                 
