@@ -1,3 +1,11 @@
+//
+//  EventStore.swift
+//  TodayInHistory-new
+//
+//  Created by Tom on 8/6/2020.
+//  Copyright © 2020 Tom. All rights reserved.
+//
+
 
 //EventService的具体实施：在 EventStore class中进行实际的URL JSON解码
 
@@ -19,7 +27,7 @@ class EventStore: EventService {
     private let baseAPIURL = "http://api.juheapi.com"
     private let urlSession = URLSession.shared
     private let jsonDecoder = Utils.jsonDecoder
-    
+
     //取得电影列表数据
     func fetchEvents(from endpoint: EventListEndpoint, completion: @escaping (Result<EventResponse, EventError>) -> ()) {
         guard let url = URL(string: "\(baseAPIURL)/japi/\(endpoint.rawValue)") else {

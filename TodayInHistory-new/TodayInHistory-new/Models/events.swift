@@ -1,8 +1,14 @@
-import Foundation
+//
+//  events.swift
+//  TodayInHistory-new
+//
+//  Created by Tom on 8/6/2020.
+//  Copyright © 2020 Tom. All rights reserved.
+//
 
 import Foundation
 
-struct EventsResponse: Decodable {
+struct EventResponse: Decodable {
     
     let result: [Event]
 }
