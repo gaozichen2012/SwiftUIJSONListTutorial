@@ -16,14 +16,18 @@
 		D000CDAB248E89A10074BCA6 /* events.swift in Sources */ = {isa = PBXBuildFile; fileRef = D000CDAA248E89A10074BCA6 /* events.swift */; };
 		D000CDAE248E8A060074BCA6 /* EventService.swift in Sources */ = {isa = PBXBuildFile; fileRef = D000CDAD248E8A060074BCA6 /* EventService.swift */; };
 		D000CDB0248E8A2D0074BCA6 /* EventStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = D000CDAF248E8A2D0074BCA6 /* EventStore.swift */; };
-		D000CDB4248E8ACE0074BCA6 /* TodayInHistory.json in Resources */ = {isa = PBXBuildFile; fileRef = D000CDB2248E8ACD0074BCA6 /* TodayInHistory.json */; };
-		D000CDB5248E8ACE0074BCA6 /* movie_list.json in Resources */ = {isa = PBXBuildFile; fileRef = D000CDB3248E8ACE0074BCA6 /* movie_list.json */; };
 		D000CDB8248E8B9C0074BCA6 /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = D000CDB7248E8B9C0074BCA6 /* Utils.swift */; };
 		D000CDBA248E8C420074BCA6 /* EventCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = D000CDB9248E8C420074BCA6 /* EventCard.swift */; };
 		D000CDBD248E8EFE0074BCA6 /* URLImage in Frameworks */ = {isa = PBXBuildFile; productRef = D000CDBC248E8EFE0074BCA6 /* URLImage */; };
 		D000CDBF248E93E20074BCA6 /* EventCardScrollView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D000CDBE248E93E20074BCA6 /* EventCardScrollView.swift */; };
 		D000CDC1248E946E0074BCA6 /* EventDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D000CDC0248E946E0074BCA6 /* EventDetailView.swift */; };
 		D000CDC3248E95B10074BCA6 /* Event+Stub.swift in Sources */ = {isa = PBXBuildFile; fileRef = D000CDC2248E95B10074BCA6 /* Event+Stub.swift */; };
+		D0F41A32248FD558004CE6F7 /* EventListState.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0F41A31248FD558004CE6F7 /* EventListState.swift */; };
+		D0F41A36248FD692004CE6F7 /* LoadingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0F41A35248FD692004CE6F7 /* LoadingView.swift */; };
+		D0F41A39248FD6D9004CE6F7 /* ActivityIndicatorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0F41A38248FD6D9004CE6F7 /* ActivityIndicatorView.swift */; };
+		D0F41A3B248FDA4A004CE6F7 /* TodayInHistory.json in Resources */ = {isa = PBXBuildFile; fileRef = D0F41A3A248FDA4A004CE6F7 /* TodayInHistory.json */; };
+		D0F41A3D248FE152004CE6F7 /* ImageLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0F41A3C248FE152004CE6F7 /* ImageLoader.swift */; };
+		D0F41A3F248FE3D0004CE6F7 /* EventListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0F41A3E248FE3D0004CE6F7 /* EventListView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -38,13 +42,17 @@
 		D000CDAA248E89A10074BCA6 /* events.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = events.swift; sourceTree = "<group>"; };
 		D000CDAD248E8A060074BCA6 /* EventService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventService.swift; sourceTree = "<group>"; };
 		D000CDAF248E8A2D0074BCA6 /* EventStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventStore.swift; sourceTree = "<group>"; };
-		D000CDB2248E8ACD0074BCA6 /* TodayInHistory.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = TodayInHistory.json; path = "../../../TodayInHistory-new-1/TodayInHistory.json"; sourceTree = "<group>"; };
-		D000CDB3248E8ACE0074BCA6 /* movie_list.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = movie_list.json; path = "../../../TodayInHistory-new-1/movie_list.json"; sourceTree = "<group>"; };
 		D000CDB7248E8B9C0074BCA6 /* Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utils.swift; sourceTree = "<group>"; };
 		D000CDB9248E8C420074BCA6 /* EventCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = EventCard.swift; path = "TodayInHistory-new/Views/EventCard.swift"; sourceTree = SOURCE_ROOT; };
 		D000CDBE248E93E20074BCA6 /* EventCardScrollView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventCardScrollView.swift; sourceTree = "<group>"; };
 		D000CDC0248E946E0074BCA6 /* EventDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventDetailView.swift; sourceTree = "<group>"; };
 		D000CDC2248E95B10074BCA6 /* Event+Stub.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Event+Stub.swift"; sourceTree = "<group>"; };
+		D0F41A31248FD558004CE6F7 /* EventListState.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventListState.swift; sourceTree = "<group>"; };
+		D0F41A35248FD692004CE6F7 /* LoadingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingView.swift; sourceTree = "<group>"; };
+		D0F41A38248FD6D9004CE6F7 /* ActivityIndicatorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityIndicatorView.swift; sourceTree = "<group>"; };
+		D0F41A3A248FDA4A004CE6F7 /* TodayInHistory.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = TodayInHistory.json; sourceTree = "<group>"; };
+		D0F41A3C248FE152004CE6F7 /* ImageLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageLoader.swift; sourceTree = "<group>"; };
+		D0F41A3E248FE3D0004CE6F7 /* EventListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventListView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -78,6 +86,7 @@
 		D000CD94248E88FC0074BCA6 /* TodayInHistory-new */ = {
 			isa = PBXGroup;
 			children = (
+				D0F41A30248FD52B004CE6F7 /* Bindings */,
 				D000CDB6248E8B730074BCA6 /* Views */,
 				D000CDB1248E8AA50074BCA6 /* Resources */,
 				D000CDAC248E89D60074BCA6 /* Services */,
@@ -122,8 +131,7 @@
 		D000CDB1248E8AA50074BCA6 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				D000CDB3248E8ACE0074BCA6 /* movie_list.json */,
-				D000CDB2248E8ACD0074BCA6 /* TodayInHistory.json */,
+				D0F41A3A248FDA4A004CE6F7 /* TodayInHistory.json */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -131,12 +139,32 @@
 		D000CDB6248E8B730074BCA6 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				D0F41A37248FD6B8004CE6F7 /* UIKitViews */,
+				D0F41A35248FD692004CE6F7 /* LoadingView.swift */,
 				D000CDB7248E8B9C0074BCA6 /* Utils.swift */,
 				D000CDB9248E8C420074BCA6 /* EventCard.swift */,
 				D000CDBE248E93E20074BCA6 /* EventCardScrollView.swift */,
 				D000CDC0248E946E0074BCA6 /* EventDetailView.swift */,
+				D0F41A3E248FE3D0004CE6F7 /* EventListView.swift */,
 			);
 			path = Views;
+			sourceTree = "<group>";
+		};
+		D0F41A30248FD52B004CE6F7 /* Bindings */ = {
+			isa = PBXGroup;
+			children = (
+				D0F41A31248FD558004CE6F7 /* EventListState.swift */,
+				D0F41A3C248FE152004CE6F7 /* ImageLoader.swift */,
+			);
+			path = Bindings;
+			sourceTree = "<group>";
+		};
+		D0F41A37248FD6B8004CE6F7 /* UIKitViews */ = {
+			isa = PBXGroup;
+			children = (
+				D0F41A38248FD6D9004CE6F7 /* ActivityIndicatorView.swift */,
+			);
+			path = UIKitViews;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -204,9 +232,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				D000CDA2248E890A0074BCA6 /* LaunchScreen.storyboard in Resources */,
-				D000CDB4248E8ACE0074BCA6 /* TodayInHistory.json in Resources */,
+				D0F41A3B248FDA4A004CE6F7 /* TodayInHistory.json in Resources */,
 				D000CD9F248E890A0074BCA6 /* Preview Assets.xcassets in Resources */,
-				D000CDB5248E8ACE0074BCA6 /* movie_list.json in Resources */,
 				D000CD9C248E890A0074BCA6 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -223,7 +250,12 @@
 				D000CD96248E88FD0074BCA6 /* AppDelegate.swift in Sources */,
 				D000CDB0248E8A2D0074BCA6 /* EventStore.swift in Sources */,
 				D000CDB8248E8B9C0074BCA6 /* Utils.swift in Sources */,
+				D0F41A36248FD692004CE6F7 /* LoadingView.swift in Sources */,
+				D0F41A3D248FE152004CE6F7 /* ImageLoader.swift in Sources */,
+				D0F41A3F248FE3D0004CE6F7 /* EventListView.swift in Sources */,
+				D0F41A39248FD6D9004CE6F7 /* ActivityIndicatorView.swift in Sources */,
 				D000CD98248E88FD0074BCA6 /* SceneDelegate.swift in Sources */,
+				D0F41A32248FD558004CE6F7 /* EventListState.swift in Sources */,
 				D000CDC3248E95B10074BCA6 /* Event+Stub.swift in Sources */,
 				D000CDC1248E946E0074BCA6 /* EventDetailView.swift in Sources */,
 				D000CDAE248E8A060074BCA6 /* EventService.swift in Sources */,

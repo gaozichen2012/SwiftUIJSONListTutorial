@@ -23,4 +23,16 @@ struct Event: Decodable, Identifiable {
     let day: Int
     let des: String
     let lunar: String
+    
+    //Identifiable必须要一个id，此时就需要CodingKey将trackId转为id
+    enum CodingKeys: String, CodingKey {
+        case id = "_id"
+            case title = "title"
+            case pic = "pic"
+            case year = "year"
+            case month = "month"
+            case day = "day"
+            case des = "des"
+            case lunar = "lunar"
+    }
 }

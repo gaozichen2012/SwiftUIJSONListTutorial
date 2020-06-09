@@ -1,4 +1,10 @@
-//new add
+//
+//  EventListView.swift
+//  TodayInHistory-new
+//
+//  Created by Tom on 9/6/2020.
+//  Copyright © 2020 Tom. All rights reserved.
+//
 
 //Tabview第一栏
 
@@ -12,11 +18,11 @@ struct EventListView: View {
     var body: some View {
         NavigationView {
             List {
-                if todayInHistoryState.movies != nil {
-                    EventCardScrollView(title: "Today in history", movies: todayInHistoryState.movies!)
+                if todayInHistoryState.events != nil {
+                    EventCardScrollView(title: "Today in history", events: todayInHistoryState.events!)
                         .listRowInsets(EdgeInsets(top: 16, leading: 0, bottom: 16, trailing: 0))
                 } else {
-                    LoadingView(isLoading: self.todayInHistoryState.isLoading, error: self.todayInHistoryState.error) {
+                        LoadingView(isLoading: self.todayInHistoryState.isLoading, error: self.todayInHistoryState.error) {
                         self.todayInHistoryState.loadEvents(with: .todayInHistory)
                     }
                 }

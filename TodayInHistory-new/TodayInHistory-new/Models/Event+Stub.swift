@@ -12,11 +12,11 @@ import Foundation
 extension Event {
     
     static var stubbedEvents: [Event] {
-        let response: EventResponse? = try? Bundle.main.loadAndDecodeJSON(filename: "movie_list")
+        let response: EventResponse? = try? Bundle.main.loadAndDecodeJSON(filename: "TodayInHistory")
         return response!.result
     }
     
-    static var stubbedMovie: Event {
+    static var stubbedEvent: Event {
         stubbedEvents[0]
     }
 }

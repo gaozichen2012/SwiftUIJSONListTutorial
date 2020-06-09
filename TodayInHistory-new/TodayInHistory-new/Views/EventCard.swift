@@ -7,35 +7,43 @@
 //
 
 import SwiftUI
-import URLImage
+//import URLImage
 
 struct EventCard: View {
     let event: Event
+    @ObservedObject var imageLoader = ImageLoader()
 
     var body: some View {
         VStack {
             ZStack {
                 Rectangle()
-                .fill(Color.gray.opacity(0.3))
-                URLImage(URL(string: "http://juheimg.oss-cn-hangzhou.aliyuncs.com/toh/200405/20/9402433357.jpg")!)
-                HStack {
-                    VStack(alignment: .leading) {
-                        Text("title")
-                        Spacer()
-                    }
-                    Spacer()
+                    .fill(Color.gray.opacity(0.3))
+                
+                if self.imageLoader.image != nil {
+                    Image(uiImage: self.imageLoader.image!)
+                        .resizable()
                 }
-                .padding([.top, .leading])
+
+                //URLImage(URL(string: "http://juheimg.oss-cn-hangzhou.aliyuncs.com/toh/200405/20/9402433357.jpg")!)
+//                URLImage(URL(string: event.pic!)!)
+
             }
             .aspectRatio(16/9, contentMode: .fit)
             .cornerRadius(20)
             .shadow(radius: 10)
+            
+             Text(event.title)
+        }
+        .lineLimit(1)
+        .onAppear {
+            //首次刷新时将图片信息传给imageLoader
+            self.imageLoader.loadImage(with: URL(string: self.event.pic ?? "http://juheimg.oss-cn-hangzhou.aliyuncs.com/toh/200405/20/9402433357.jpg")!)
         }
     }
 }
 
 struct EventCard_Previews: PreviewProvider {
     static var previews: some View {
-        EventCard()
+        EventCard(event: Event.stubbedEvent)
     }
 }

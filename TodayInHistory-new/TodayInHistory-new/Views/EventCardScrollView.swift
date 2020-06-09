@@ -6,8 +6,7 @@
 //  Copyright © 2020 Tom. All rights reserved.
 //
 
-//此处预览有问题，明天继续参考TMDB添加其他部分，晚上回来测试
-//如果有问题，则替换
+//此处预览有问题,可能是因为有的pic没图片，导致图片解码失败，可能要修改;明天尝试加打印信息测试哪里出问题了
 
 import SwiftUI
 
@@ -16,30 +15,29 @@ struct EventCardScrollView: View {
     let events: [Event]
     
     var body: some View {
-        #if true
-        Text(title)
-        #else
-        VStack {
+
+        VStack(alignment: .leading, spacing: 0) {
             Text(title)
                 .font(.title)
                 .fontWeight(.bold)
                 .padding(.horizontal)
-            
-            ScrollView(.horizontal, showsIndicators: false) {
-                HStack(alignment: .top, spacing: 16) {
+
+            ScrollView(.vertical, showsIndicators: false) {
+                VStack(spacing: 16) {
                     ForEach(self.events) { event in
-                        NavigationLink(destination: EventDetailView()) {
-                            EventCard()
+                        NavigationLink(destination: Text("detail")) {
+                            EventCard(event: event)
                                 .frame(width: 272, height: 200)
+//                            Text(event.pic!)
                         }
-                        .buttonStyle(PlainButtonStyle())
-                        .padding(.leading, event.id == self.events.first!.id ? 16 : 0)
-                        .padding(.trailing, event.id == self.events.last!.id ? 16 : 0)
+//                        .buttonStyle(PlainButtonStyle())
+//                        .padding(.leading, event.id == self.events.first!.id ? 16 : 0)
+//                        .padding(.trailing, event.id == self.events.last!.id ? 16 : 0)
                     }
                 }
             }
         }
-        #endif
+
     }
 }
 
@@ -48,3 +46,4 @@ struct EventCardScrollView_Previews: PreviewProvider {
         EventCardScrollView(title: "Latest", events: Event.stubbedEvents)
     }
 }
+
