@@ -89,7 +89,6 @@ class EventStore: EventService {
             completion(result)
         }
     }
-    
-    
-    
 }
+
+

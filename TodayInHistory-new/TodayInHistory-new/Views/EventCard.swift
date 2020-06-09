@@ -10,6 +10,8 @@ import SwiftUI
 import URLImage
 
 struct EventCard: View {
+    let event: Event
+
     var body: some View {
         VStack {
             ZStack {
@@ -28,8 +30,6 @@ struct EventCard: View {
             .aspectRatio(16/9, contentMode: .fit)
             .cornerRadius(20)
             .shadow(radius: 10)
-            
-            
         }
     }
 }

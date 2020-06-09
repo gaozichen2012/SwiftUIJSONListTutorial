@@ -6,11 +6,31 @@
 //  Copyright © 2020 Tom. All rights reserved.
 //
 
+//Tabbed View
+
 import SwiftUI
 
 struct ContentView: View {
     var body: some View {
-        Text("Hello, World!")
+        TabView {
+            EventListView()
+                .tabItem {
+                    VStack {
+                        Image(systemName: "tv")
+                        Text("Movies")
+                    }
+            }
+            .tag(0)
+            
+            EventListView()
+                .tabItem {
+                    VStack {
+                        Image(systemName: "magnifyingglass")
+                        Text("Search")
+                    }
+            }
+            .tag(1)
+        }
     }
 }
 

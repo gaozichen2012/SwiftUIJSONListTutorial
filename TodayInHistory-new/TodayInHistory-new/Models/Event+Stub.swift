@@ -8,7 +8,7 @@
 
 import Foundation
 
-//从本地的Resources文件夹movie_list.json文件中获取数据
+//从本地的Resources文件夹movie_list.json文件中获取数据（用于一些卡片视图的直接预览）
 extension Event {
     
     static var stubbedEvents: [Event] {
