@@ -6,7 +6,7 @@
 //  Copyright © 2020 Tom. All rights reserved.
 //
 
-//此处预览有问题,可能是因为有的pic没图片，导致图片解码失败，可能要修改;明天尝试加打印信息测试哪里出问题了
+//
 
 import SwiftUI
 
@@ -22,15 +22,15 @@ struct EventCardScrollView: View {
                 .fontWeight(.bold)
                 .padding(.horizontal)
 
-            ScrollView(.vertical, showsIndicators: false) {
+             ScrollView {
                 VStack(spacing: 16) {
                     ForEach(self.events) { event in
-                        NavigationLink(destination: Text("detail")) {
+                        NavigationLink(destination: EventDetailView()) {
                             EventCard(event: event)
-                                .frame(width: 272, height: 200)
-//                            Text(event.pic!)
+                                .frame(width: 272)
+                            //Text(event.pic!)
                         }
-//                        .buttonStyle(PlainButtonStyle())
+                        .buttonStyle(PlainButtonStyle())
 //                        .padding(.leading, event.id == self.events.first!.id ? 16 : 0)
 //                        .padding(.trailing, event.id == self.events.last!.id ? 16 : 0)
                     }

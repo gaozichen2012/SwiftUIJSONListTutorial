@@ -12,7 +12,7 @@ import SwiftUI
 struct EventCard: View {
     let event: Event
     @ObservedObject var imageLoader = ImageLoader()
-
+    
     var body: some View {
         VStack {
             ZStack {
@@ -23,21 +23,21 @@ struct EventCard: View {
                     Image(uiImage: self.imageLoader.image!)
                         .resizable()
                 }
-
+                
                 //URLImage(URL(string: "http://juheimg.oss-cn-hangzhou.aliyuncs.com/toh/200405/20/9402433357.jpg")!)
-//                URLImage(URL(string: event.pic!)!)
-
+                //                URLImage(URL(string: event.pic!)!)
+                
             }
             .aspectRatio(16/9, contentMode: .fit)
             .cornerRadius(20)
             .shadow(radius: 10)
             
-             Text(event.title)
+            Text(event.title)
         }
         .lineLimit(1)
         .onAppear {
             //首次刷新时将图片信息传给imageLoader
-            self.imageLoader.loadImage(with: URL(string: self.event.pic ?? "http://juheimg.oss-cn-hangzhou.aliyuncs.com/toh/200405/20/9402433357.jpg")!)
+            self.imageLoader.loadImage(with: URL(string: self.event.picture)!)
         }
     }
 }

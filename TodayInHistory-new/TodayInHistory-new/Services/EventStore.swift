@@ -12,7 +12,7 @@
 import Foundation
 
 //获取1种格式的JSON数据：
-//"http://api.juheapi.com/japi/toh?v=1.0&month=5&day=20&key=f16083ccb0da9bce187582cab895c060"
+//http://api.juheapi.com/japi/toh?v=1.0&month=5&day=20&key=f16083ccb0da9bce187582cab895c060
 //https://api.themoviedb.org/3/movie/now_playing?api_key=a7532a23ae5813193ebd13ba4de76cf2
 //https://api.themoviedb.org/3/movie/550?api_key=a7532a23ae5813193ebd13ba4de76cf2
 //https://api.themoviedb.org/3/search/movie?language=en-US&include_adult=false&region=US&query=green&api_key=a7532a23ae5813193ebd13ba4de76cf2
@@ -45,7 +45,9 @@ class EventStore: EventService {
             return
         }
         
+//        var queryItems = [URLQueryItem(name: "key", value: apiKey),URLQueryItem(name: "v", value: "1.0"),URLQueryItem(name: "month", value: "5"),URLQueryItem(name: "day", value: "20")]
         var queryItems = [URLQueryItem(name: "key", value: apiKey)]
+
         if let params = params {
             queryItems.append(contentsOf: params.map { URLQueryItem(name: $0.key, value: $0.value) })
         }
