@@ -45,8 +45,8 @@ class EventStore: EventService {
             return
         }
         
-//        var queryItems = [URLQueryItem(name: "key", value: apiKey),URLQueryItem(name: "v", value: "1.0"),URLQueryItem(name: "month", value: "5"),URLQueryItem(name: "day", value: "20")]
-        var queryItems = [URLQueryItem(name: "key", value: apiKey)]
+        var queryItems = [URLQueryItem(name: "key", value: apiKey),URLQueryItem(name: "v", value: "1.0"),URLQueryItem(name: "month", value: "6"),URLQueryItem(name: "day", value: "11")]
+//        var queryItems = [URLQueryItem(name: "key", value: apiKey)]
 
         if let params = params {
             queryItems.append(contentsOf: params.map { URLQueryItem(name: $0.key, value: $0.value) })

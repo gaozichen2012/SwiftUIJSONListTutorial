@@ -32,9 +32,12 @@ struct EventCard: View {
             .cornerRadius(20)
             .shadow(radius: 10)
             
-            Text(event.title)
+            HStack {
+                Text("\(event.year)")
+                Text(event.title)
+            }
         }
-        .lineLimit(1)
+        .lineLimit(2)
         .onAppear {
             //首次刷新时将图片信息传给imageLoader
             self.imageLoader.loadImage(with: URL(string: self.event.picture)!)

@@ -23,11 +23,11 @@ struct EventCardScrollView: View {
                 .padding(.horizontal)
 
              ScrollView {
-                VStack(spacing: 16) {
+                VStack {
                     ForEach(self.events) { event in
-                        NavigationLink(destination: EventDetailView()) {
+                        NavigationLink(destination: EventDetailView(event: event)) {
                             EventCard(event: event)
-                                .frame(width: 272)
+                                .frame(width: 350)
                             //Text(event.pic!)
                         }
                         .buttonStyle(PlainButtonStyle())
@@ -35,6 +35,7 @@ struct EventCardScrollView: View {
 //                        .padding(.trailing, event.id == self.events.last!.id ? 16 : 0)
                     }
                 }
+                .padding(.all)
             }
         }
 
