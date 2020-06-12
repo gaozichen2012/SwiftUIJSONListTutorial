@@ -29,7 +29,7 @@ class EventStore: EventService {
     private let jsonDecoder = Utils.jsonDecoder
 
     //取得电影列表数据
-    func fetchEvents(from endpoint: EventListEndpoint, completion: @escaping (Result<EventResponse, EventError>) -> ()) {
+    func fetchEvents(from endpoint: EventListEndpoint,query: String, completion: @escaping (Result<EventResponse, EventError>) -> ()) {
         guard let url = URL(string: "\(baseAPIURL)/japi/\(endpoint.rawValue)") else {
             completion(.failure(.invalidEndpoint))
             return
@@ -39,7 +39,7 @@ class EventStore: EventService {
         self.loadURLAndDecode(url: url, params: [
             "v": "1.0",
             "month": "6",
-            "day": "10"
+            "day": query
         ], completion: completion)
 
         // self.loadURLAndDecode(url: url, params: [
