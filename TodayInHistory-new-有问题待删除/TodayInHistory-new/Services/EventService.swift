@@ -10,7 +10,7 @@ import Foundation
 
 //定义了1个服务protocol，包含1个方法：获取列表
 protocol EventService {
-    func fetchEvents(from endpoint: EventListEndpoint, completion: @escaping (Result<EventResponse, EventError>) -> ())
+    func fetchEvents(from endpoint: EventListEndpoint,query: String, completion: @escaping (Result<EventResponse, EventError>) -> ())
 }
 
 //封装了1个enum：供url参数使用，用于获取 list

@@ -29,17 +29,25 @@ class EventStore: EventService {
     private let jsonDecoder = Utils.jsonDecoder
 
     //取得电影列表数据
-    func fetchEvents(from endpoint: EventListEndpoint, completion: @escaping (Result<EventResponse, EventError>) -> ()) {
+    func fetchEvents(from endpoint: EventListEndpoint,query: String, completion: @escaping (Result<EventResponse, EventError>) -> ()) {
         guard let url = URL(string: "\(baseAPIURL)/japi/\(endpoint.rawValue)") else {
             completion(.failure(.invalidEndpoint))
             return
         }
-//        self.loadURLAndDecode(url: url, completion: completion)
-                self.loadURLAndDecode(url: url, params: [
-                    "v": "1.0",
-                    "month": "6",
-                    "day": "7" //query
-                ], completion: completion)
+        self.loadURLAndDecode(url: url, completion: completion)
+
+//        self.loadURLAndDecode(url: url, params: [
+//            "v": "1.0",
+//            "month": "6",
+//            "day": "7" //query
+//        ], completion: completion)
+
+        // self.loadURLAndDecode(url: url, params: [
+        //     "language": "en-US",
+        //     "include_adult": "false",
+        //     "region": "US",
+        //     "query": query
+        // ], completion: completion)
     }
     
 
@@ -50,9 +58,8 @@ class EventStore: EventService {
             return
         }
         
-//        var queryItems = [URLQueryItem(name: "key", value: apiKey),URLQueryItem(name: "v", value: "1.0"),URLQueryItem(name: "month", value: "6"),URLQueryItem(name: "day", value: "11")]
-        var queryItems = [URLQueryItem(name: "key", value: apiKey)]
-
+        var queryItems = [URLQueryItem(name: "key", value: apiKey),URLQueryItem(name: "v", value: "1.0"),URLQueryItem(name: "month", value: "6"),URLQueryItem(name: "day", value: "11")]
+//        var queryItems = [URLQueryItem(name: "key", value: apiKey)]
         if let params = params {
             queryItems.append(contentsOf: params.map { URLQueryItem(name: $0.key, value: $0.value) })
         }

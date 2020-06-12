@@ -8,7 +8,6 @@
 
 //Tabview第一栏
 
-
 import SwiftUI
 
 struct EventListView: View {
@@ -23,14 +22,23 @@ struct EventListView: View {
                         .listRowInsets(EdgeInsets(top: 16, leading: 0, bottom: 16, trailing: 0))
                 } else {
                         LoadingView(isLoading: self.todayInHistoryState.isLoading, error: self.todayInHistoryState.error) {
-                        self.todayInHistoryState.loadEvents(with: .todayInHistory)
+                        //self.todayInHistoryState.loadEvents(with: .todayInHistory,query: "10")
+                            self.todayInHistoryState.loadEvents(with: .todayInHistory)
                     }
                 }
             }
             .navigationBarTitle("The EventDb")
         }
         .onAppear {
+//            self.todayInHistoryState.loadEvents(with: .todayInHistory, query: "10")
             self.todayInHistoryState.loadEvents(with: .todayInHistory)
+
         }
+    }
+}
+
+struct EventListView_Previews: PreviewProvider {
+    static var previews: some View {
+        EventListView()
     }
 }
