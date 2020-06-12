@@ -34,7 +34,20 @@ class EventStore: EventService {
             completion(.failure(.invalidEndpoint))
             return
         }
-        self.loadURLAndDecode(url: url, completion: completion)
+        //self.loadURLAndDecode(url: url, completion: completion)
+
+        self.loadURLAndDecode(url: url, params: [
+            "v": "1.0",
+            "month": "6",
+            "day": "10"
+        ], completion: completion)
+
+        // self.loadURLAndDecode(url: url, params: [
+        //     "language": "en-US",
+        //     "include_adult": "false",
+        //     "region": "US",
+        //     "query": query
+        // ], completion: completion)
     }
     
 
@@ -45,9 +58,8 @@ class EventStore: EventService {
             return
         }
         
-        var queryItems = [URLQueryItem(name: "key", value: apiKey),URLQueryItem(name: "v", value: "1.0"),URLQueryItem(name: "month", value: "6"),URLQueryItem(name: "day", value: "11")]
-//        var queryItems = [URLQueryItem(name: "key", value: apiKey)]
-
+        //var queryItems = [URLQueryItem(name: "key", value: apiKey),URLQueryItem(name: "v", value: "1.0"),URLQueryItem(name: "month", value: "6"),URLQueryItem(name: "day", value: "11")]
+        var queryItems = [URLQueryItem(name: "api_key", value: apiKey)]
         if let params = params {
             queryItems.append(contentsOf: params.map { URLQueryItem(name: $0.key, value: $0.value) })
         }

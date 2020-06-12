@@ -6,7 +6,12 @@
 //  Copyright © 2020 Tom. All rights reserved.
 //
 
-//图片解析失败的原因是JSON数据值为""空字符串，而不是nil，所以需要通过==""判断，再调用
+
+// JSON数据图片信息为空，导致解析失败（Xcode无法预览）
+// 图片解析失败的原因是JSON数据值为""空字符串，而不是nil，所以需要通过==""判断，再调用
+// 注意：此时无法通过==nil判断，或者是强制解包!
+
+// 比如：有的pic为""，这时通过Data Model处理空图片数据，赋予一个默认值即可
 
 import Foundation
 
@@ -36,11 +41,6 @@ struct Event: Decodable, Identifiable {
             case day = "day"
             case des = "des"
             case lunar = "lunar"
-    }
-    
-    //补全横幅卡片图片的http头
-    var pictureURL: URL {
-        return URL(string: "\(pic ?? "http://juheimg.oss-cn-hangzhou.aliyuncs.com/toh/200405/20/9402433357.jpg")")!
     }
     
     var picture: String {
