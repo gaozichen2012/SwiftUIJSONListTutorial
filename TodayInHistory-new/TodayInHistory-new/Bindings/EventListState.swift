@@ -9,9 +9,12 @@
 //上连接EventListView，下连接 EventStore 的 fetchEvents 方法
 
 import SwiftUI
+import Combine
+import Foundation
 
 class EventListState: ObservableObject {
     
+    @Published var query = ""
     @Published var events: [Event]?
     @Published var isLoading: Bool = false
     @Published var error: NSError?
@@ -21,6 +24,7 @@ class EventListState: ObservableObject {
     init(eventService: EventService = EventStore.shared) {
         self.eventService = eventService
     }
+
     //从EventStore中继承了 fetchEvents 方法获取数据
     //在onAppear中调用loadEvents时获取数据可以保证每次刷新是获取一次数据（不同于init时获取数据）
     func loadEvents(with endpoint: EventListEndpoint) {
@@ -39,6 +43,23 @@ class EventListState: ObservableObject {
         }
     }
     
+    func loadEvents2(query: String) {
+        self.events = nil
+        self.isLoading = false
+        
+        self.eventService.fetchEvents2(query: query) { [weak self] (result) in
+            guard let self = self else { return }
+            
+            self.isLoading = false
+            switch result {
+            case .success(let response):
+                self.events = response.result
+                
+            case .failure(let error):
+                self.error = error as NSError
+            }
+        }
+    }
 }
 
 

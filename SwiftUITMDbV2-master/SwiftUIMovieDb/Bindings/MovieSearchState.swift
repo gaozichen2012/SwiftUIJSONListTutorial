@@ -45,7 +45,6 @@ class MovieSearchState: ObservableObject {
     func search(query: String) {
         self.movies = nil
         self.isLoading = false
-        self.error = nil
         
         guard !query.isEmpty else {
             return

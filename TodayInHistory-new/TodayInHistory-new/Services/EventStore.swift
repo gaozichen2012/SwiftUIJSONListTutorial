@@ -42,6 +42,19 @@ class EventStore: EventService {
                 ], completion: completion)
     }
     
+        func fetchEvents2(query: String, completion: @escaping (Result<EventResponse, EventError>) -> ()) {
+            guard let url = URL(string: "\(baseAPIURL)/japi/toh") else {
+                completion(.failure(.invalidEndpoint))
+                return
+            }
+    //        self.loadURLAndDecode(url: url, completion: completion)
+                    self.loadURLAndDecode(url: url, params: [
+                        "v": "1.0",
+                        "month": "6",
+                        "day": query
+                    ], completion: completion)
+        }
+    
 
     //定义了一个泛型函数用于加载URL和解码（使用了 URLComponents 和 URLQueryItem ）
     private func loadURLAndDecode<D: Decodable>(url: URL, params: [String: String]? = nil, completion: @escaping (Result<D, EventError>) -> ()) {

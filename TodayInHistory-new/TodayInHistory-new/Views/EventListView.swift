@@ -12,6 +12,7 @@
 import SwiftUI
 
 struct EventListView: View {
+    let query: String
     //@ObservedObject告诉SwiftUI，这个对象是可以被观察的，里面含有被@Published包装了的属性。
     @ObservedObject private var todayInHistoryState = EventListState()
     
@@ -23,14 +24,16 @@ struct EventListView: View {
                         .listRowInsets(EdgeInsets(top: 16, leading: 0, bottom: 16, trailing: 0))
                 } else {
                         LoadingView(isLoading: self.todayInHistoryState.isLoading, error: self.todayInHistoryState.error) {
-                        self.todayInHistoryState.loadEvents(with: .todayInHistory)
+                            self.todayInHistoryState.loadEvents2(query: self.query)
                     }
                 }
             }
             .navigationBarTitle("The EventDb")
         }
         .onAppear {
-            self.todayInHistoryState.loadEvents(with: .todayInHistory)
+            //self.todayInHistoryState.loadEvents(with: .todayInHistory)
+            self.todayInHistoryState.loadEvents2(query: self.query)
+
         }
     }
 }
