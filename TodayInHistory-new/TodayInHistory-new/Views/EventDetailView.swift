@@ -28,7 +28,11 @@ struct MovieDetailListView: View {
     var body: some View {
         List {
             //第一栏：横幅图片
-            URLImage(URL(string: event.picture)!)
+            VStack {
+                URLImage(URL(string: event.picture)!)
+            }
+            .resizable()
+            .aspectRatio(16/9, contentMode: .fit)
             //第二栏：电影类型+发行年份+电影时长
             HStack {
                 Text("\(event.year)")
