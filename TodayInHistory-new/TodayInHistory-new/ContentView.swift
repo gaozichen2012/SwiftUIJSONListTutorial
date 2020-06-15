@@ -13,7 +13,7 @@ import SwiftUI
 struct ContentView: View {
     var body: some View {
         TabView {
-            EventListView(query: "2")
+            InputView()
                 .tabItem {
                     VStack {
                         Image(systemName: "tv")
@@ -22,7 +22,7 @@ struct ContentView: View {
             }
             .tag(0)
             
-            EventListView(query: "3")
+            InputView()
                 .tabItem {
                     VStack {
                         Image(systemName: "magnifyingglass")

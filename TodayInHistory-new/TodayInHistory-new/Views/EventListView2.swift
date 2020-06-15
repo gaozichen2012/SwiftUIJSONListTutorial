@@ -1,23 +1,25 @@
 //
-//  EventListView.swift
+//  EventListView2.swift
 //  TodayInHistory-new
 //
-//  Created by Tom on 9/6/2020.
+//  Created by Tom on 15/6/2020.
 //  Copyright © 2020 Tom. All rights reserved.
 //
 
-//Tabview第一栏
-
-
 import SwiftUI
 
-struct EventListView: View {
+struct EventListView2: View {
+    @State var day = ""
     let query: String
     //@ObservedObject告诉SwiftUI，这个对象是可以被观察的，里面含有被@Published包装了的属性。
     @ObservedObject private var todayInHistoryState = EventListState()
     
     var body: some View {
         VStack {
+//             DatePicker(selection: $date, label: { Text("Date") })
+//            .datePickerStyle(WheelDatePickerStyle())
+//            Text("\(date)")
+            TextField("input day", text: $day)
             NavigationView {
                 List {
                     if todayInHistoryState.events != nil {
@@ -34,16 +36,14 @@ struct EventListView: View {
             .onAppear {
                 //self.todayInHistoryState.loadEvents(with: .todayInHistory)
                 self.todayInHistoryState.loadEvents2(query: self.query)
+
             }
         }
-//        .frame(minWidth: 0, maxWidth: .infinity, minHeight: 0, maxHeight: .infinity)
-//        .background(Color.yellow)
-//        .cornerRadius(30)
-////        .offset(y:show ? 50 : UIScreen.main.bounds.height-500)
-//            .offset(y:show ? 50 :100)
-//        .onTapGesture {
-//            self.todayInHistoryState.loadEvents2(query: self.query)
-//        }
-        
+    }
+}
+
+struct EventListView2_Previews: PreviewProvider {
+    static var previews: some View {
+        EventListView2(query: "4")
     }
 }
