@@ -12,6 +12,7 @@ struct ContentView: View {
     @State var counter = 0
     var body: some View {
         VStack {
+            log("button准备工作")
             Button(action: { self.counter += 1 }, label: {
                 Text("Tap me!")
                     .padding()
@@ -21,16 +22,18 @@ struct ContentView: View {
             
             if counter > 0 {
                 Text("You've tapped \(counter) times")
+                log("You've tapped \(counter) times")
             } else {
                 Text("You've not yet tapped")
+                log("You've not yet tapped")
             }
         }
     }
 }
 
-func debug<A: View>(_ a: A) -> some View {
-    print(Mirror(reflecting: a).subjectType)
-    return a
+func log(_ log: String) -> EmptyView {
+    print("打印测试： \(log)")
+    return EmptyView()
 }
 
 struct ContentView_Previews: PreviewProvider {
